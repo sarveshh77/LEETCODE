@@ -11,7 +11,7 @@ class Solution {
 
             for(j=i;j<=expected.length-1;j++)
             {
-                if(expected[j]<expected[mini])
+                if(expected[j]<=expected[mini])
                 {
                     mini=j;
                 }
