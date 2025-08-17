@@ -1,19 +1,18 @@
 class Solution {
     public int missingNumber(int[] nums) 
     {
-        HashMap<Integer,Boolean> hs = new HashMap();
+        int n=nums.length;
 
-        for(int num : nums)
+        int sum=n*(n+1)/2;
+        int sum2=0;
+
+        for(int i=0;i<n;i++)
         {
-            hs.put(num,true);
+            sum2+=nums[i];
         }
-        for(int i=0;i<=nums.length;i++)
-        {
-            if(!hs.containsKey(i))
-            {
-                return i;
-            }
-        }
-        return -1;
+
+        int diff = sum-sum2;
+
+        return diff;
     }
 }
