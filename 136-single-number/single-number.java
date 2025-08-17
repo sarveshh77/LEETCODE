@@ -1,11 +1,19 @@
 class Solution {
-    public int singleNumber(int[] nums) 
+    public int singleNumber(int[] nums)
     {
-       int res = 0;  
-        for (int i = 0; i < nums.length; i++) {
-            res = res ^ nums[i]; 
-        }
+        HashMap<Integer,Integer> map = new HashMap<>();
 
-        return res;
+        for(int num : nums)
+        {
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        for(int i : map.keySet())
+        {
+            if(map.get(i)==1)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }
