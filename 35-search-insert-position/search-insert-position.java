@@ -1,24 +1,24 @@
 class Solution {
     public int searchInsert(int[] nums, int target) 
     {
-        ArrayList<Integer> al = new ArrayList();
-        for(int num : nums)
-        {
-            al.add(num);
-        }
-        if(al.contains(target))
-        {
-            int index = al.indexOf(target);
-            return index;
-        }
-        else
-        {
-            al.add(target);
-            Collections.sort(al);
+        int n=nums.length;
+        int low=0;
+        int high=n-1;
+        int insertLoc=n;
 
-           return al.indexOf(target);
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(nums[mid]>=target)
+            {
+                insertLoc=mid;
+                high=mid-1;
+            }
+            else
+            {
+                low=mid+1;
+            }
         }
-
-
+        return insertLoc;
     }
 }
