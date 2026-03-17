@@ -21,7 +21,6 @@ class Solution {
             prev = curr;
             curr = next;
         }
-
         head = prev;
         int max = head.val;
         curr = head;
@@ -39,7 +38,6 @@ class Solution {
                 max = curr.val;
             }
         }
-
         prev = null;
         curr = head;
 
@@ -50,7 +48,6 @@ class Solution {
             prev = curr;
             curr = next;
         }
-
         return prev;
     }
 }
