@@ -15,7 +15,6 @@ class Solution {
                 if(n==""){
                     continue;
                 }
-                System.out.println("String: "+n);
                 // hs.put(n.toLowerCase(),hs.getOrDefault(n,0)+1);
                 sb.append(n.toLowerCase()+" ");
             
@@ -48,7 +47,6 @@ class Solution {
             }
             
         }
-        System.out.println(hs);
         for(String str : hs.keySet())
         {
             if(hs.get(str)>max)
