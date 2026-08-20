@@ -24,11 +24,16 @@ class Solution {
                 al2.add(nums[i]);
             }
         }
-        al1.addAll(al2);
-
+         int k=0;
          for(int i=0;i<al1.size();i++)
          {
              ans[i]=al1.get(i);
+             k++;
+         }
+          for(int j=0;j<al2.size();j++)
+         {
+             ans[k]=al2.get(j);
+             k++;
          }
          return ans;
     }
