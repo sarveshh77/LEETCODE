@@ -9,7 +9,7 @@ class Solution {
         ArrayList<Integer> al1= new ArrayList<>();
         ArrayList<Integer> al2 = new ArrayList<>();
         
-      
+
         al1.add(0,nums[0]);
         al2.add(0,nums[1]);
        
