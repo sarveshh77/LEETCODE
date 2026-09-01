@@ -14,7 +14,7 @@ class Solution {
             if(capacity[i]>=sum)
             {
                 count++;
-                i=-1;
+                break;
             }
             else
             {
