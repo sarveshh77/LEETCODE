@@ -1,58 +1,61 @@
+
 class Solution {
-    public int[] searchRange(int[] nums, int target) 
-    {
-        int first=lowerBound(nums,target);
-        int last=upperBound(nums,target)-1;
 
-          if (first==nums.length||nums[first]!=target) 
-          {
-            return new int[]{-1,-1};
-         
-        }
-        return new int[]{first,last};
-    }
-    public int lowerBound(int[] nums, int x) 
-    {
-       int n=nums.length;
-       int low=0,high=n-1;
-       int bound=n;
+    public int firstOccurrence(int[] nums, int target) {
 
-       while(low<=high)
-       {
-         int mid=(low+high)/2;
-          if(nums[mid]>=x)
-          {
-            bound=mid;
-            high=mid-1;
-          }
-          else
-          {
-            low=mid+1;
-          }
-       }
-       return bound;
-    }
-     public int upperBound(int[] nums, int x) 
-    {
-        int n=nums.length;
-        int low=0;
-        int high=n-1;
-        int bound=n;
+        int low = 0;
+        int high = nums.length - 1;
+        int ans = -1;
 
-        while(low<=high)
-        {
-            int mid=(low+high)/2;
-            if(nums[mid]>x)
-            {
+        while (low <= high) {
 
-                bound=mid;
-                high=mid-1;
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                ans = mid;
+                high = mid - 1;
             }
-            else
-            {
-                low=mid+1;
+            else if (nums[mid] > target) {
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
             }
         }
-        return bound;
+
+        return ans;
+    }
+
+    public int lastOccurrence(int[] nums, int target) {
+
+        int low = 0;
+        int high = nums.length - 1;
+        int ans = -1;
+
+        while (low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                ans = mid;
+                low = mid + 1;
+            }
+            else if (nums[mid] > target) {
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+
+    public int[] searchRange(int[] nums, int target) {
+
+        int first = firstOccurrence(nums, target);
+        int last = lastOccurrence(nums, target);
+
+        return new int[]{first, last};
     }
 }
