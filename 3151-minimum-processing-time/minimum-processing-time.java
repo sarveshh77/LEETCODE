@@ -7,9 +7,6 @@ class Solution {
         Collections.sort(processorTime);
         Collections.sort(tasks,Collections.reverseOrder());
 
-        System.out.println(tasks);
-        System.out.println(processorTime);
-
         for(int i = 0; i < tasks.size(); i+=4)
         {
             sum = processorTime.get(k++) + tasks.get(i);
